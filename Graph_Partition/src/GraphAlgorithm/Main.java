@@ -34,7 +34,10 @@ public class Main {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         Main M = new Main();
         FileOp FO=new FileOp();
+        AKIN AK = new AKIN();
         FO.ReadFile();
+        FO.printGraph();
+        AK.vertexMigration(0,10);
 
 
 

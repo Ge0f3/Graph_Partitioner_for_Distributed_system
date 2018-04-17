@@ -8,6 +8,17 @@ import java.util.Map;
 
 
 public class AKIN {
+
+    FileOp graph = new FileOp();
+    HashMap<Integer,ArrayList<Integer>> Graph = graph.ReadFile();
+
+
+    public void vertexMigration(int src,int dest){
+        ArrayList<Integer> i = Graph.get(src);
+        ArrayList<Integer> j = Graph.get(dest);
+        System.out.printf("The edge list of %s is %s \nThe edge list of %s is %s",src,i,dest,j);
+    }
+
 //    LinkedList<Integer> pratition;
 //    Map<Integer,Integer> Graph = new HashMap<Integer,Integer>();
 //    ArrayList<Integer> partition = new ArrayList<Integer>();

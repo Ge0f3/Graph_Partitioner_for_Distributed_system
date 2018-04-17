@@ -11,7 +11,9 @@ public class FileOp {
     FileOp(){
         System.out.println("<------------------------------------------------------------------------   Reading the file ------------------------------------------------ ------------------------>");
     }
-
+    public HashMap SenderGraph(){
+        return Graph;
+    }
     public boolean isavailable(int vertex){
         boolean result = Graph.containsKey(vertex);
         return result;
@@ -39,6 +41,7 @@ public class FileOp {
 
     }
     public void printGraph(){
+        System.out.println("Printing the graph adjacency List");
         System.out.println("Printing the vertex with its edge list");
         for (Integer vertex1:Graph.keySet()) {
             Integer key = vertex1;
@@ -47,7 +50,7 @@ public class FileOp {
         }
 
     }
-    public void ReadFile(){
+    public HashMap<Integer, ArrayList<Integer>> ReadFile(){
         Scanner F = null;
         try{
             F = new Scanner(new File("text_file.txt"));
@@ -62,8 +65,7 @@ public class FileOp {
             //System.out.printf("%s is connected to %s \n",edge1,edge2);
 
         }
+        return Graph;
 
-        System.out.println("Printing the graph adjacency List");
-        printGraph();
     }
 }
