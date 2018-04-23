@@ -6,23 +6,11 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-    Scanner sc=new Scanner(System.in);
+
     Map<String,String> graph =new HashMap<String, String>();
 
     Main(){
-        System.out.println("This is the main function");
-//        String option = " ";
-//        while(true){
-//            if(option.equals("3")){
-//                System.out.println("Exiting the program !!!");
-//                System.exit(0);
-//            }
-//            System.out.printf("Your option is %s \n",option);
-//            System.out.println("Graph Partition Algorithms \nEnter your choice \n1.AKIN \n2.IOGP\n3.To Exit");
-//            option = sc.nextLine();
-//
-//
-//        }
+        System.out.println("<------------------------------------------------------------------------   Graph Partitioning Algorithm ------------------------------------------------ ------------------------>");
 
     }
 
@@ -30,15 +18,40 @@ public class Main {
 
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
+        Scanner sc=new Scanner(System.in);
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         Main M = new Main();
         FileOp FO=new FileOp();
-        AKIN AK = new AKIN();
-        FO.ReadFile();
-        FO.printGraph();
-        AK.vertexMigration(0,10);
 
+        while(true){
+            System.out.println("*********************************************************************************************");
+            System.out.println("Type the action number as following:");
+            System.out.println("1. AKIN.");
+            System.out.println("2. IOGP.");
+            System.out.println("3. Read Graph.");
+            System.out.println("4. Print Graph adjacency list.");
+            System.out.println("5. To exit.");
+            System.out.println("*********************************************************************************************\n");
+            String option = sc.nextLine();
+            if(option.equals("1")){
+                AKIN ak = new AKIN();
+            }
+            if(option.equals("2")){
+                IOGP iogp =new IOGP();
+            }
+            if(option.equals("3")){
+                FO.ReadFile();
+            }
+            if(option.equals("4")){
+                FO.printGraph();
+            }
+            else if(option.equals("5")){
+                System.out.println("Exiting...");
+                System.exit(0);
+            }
+
+        }
 
 
 
