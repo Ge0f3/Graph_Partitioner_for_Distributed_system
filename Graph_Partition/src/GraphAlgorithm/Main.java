@@ -23,30 +23,38 @@ public class Main {
         System.out.println("Working Directory = " + System.getProperty("user.dir"));
         Main M = new Main();
         FileOp FO=new FileOp();
+        int numOfPartition=10;
+        AKIN ak = new AKIN(numOfPartition);
 
         while(true){
             System.out.println("*********************************************************************************************");
             System.out.println("Type the action number as following:");
             System.out.println("1. AKIN.");
             System.out.println("2. IOGP.");
-            System.out.println("3. Read Graph.");
-            System.out.println("4. Print Graph adjacency list.");
-            System.out.println("5. To exit.");
+            System.out.println("3. Print partition ");
+            System.out.println("4. To exit.");
             System.out.println("*********************************************************************************************\n");
             String option = sc.nextLine();
             if(option.equals("1")){
-                AKIN ak = new AKIN();
+                System.out.println("Enter the Number of partition: ");
+                numOfPartition = sc.nextInt();
+                FO.ReadFile();
+                ak.printGraph();
+                ak.Update_vertex_list();
+                ak.print_vertex_list();
+                ak.vertex_hash_map();
+                ak.print_vertex_hash();
+                ak.partition();
             }
             if(option.equals("2")){
                 IOGP iogp =new IOGP();
             }
             if(option.equals("3")){
-                FO.ReadFile();
+                ak.print_partition_value();
+
             }
-            if(option.equals("4")){
-                FO.printGraph();
-            }
-            else if(option.equals("5")){
+
+            else if(option.equals("4")){
                 System.out.println("Exiting...");
                 System.exit(0);
             }
