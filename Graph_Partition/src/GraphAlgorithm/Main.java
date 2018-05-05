@@ -24,7 +24,7 @@ public class Main {
         Main M = new Main();
         FileOp FO=new FileOp();
         int numOfPartition=10;
-        AKIN ak = new AKIN(numOfPartition);
+
 
         while(true){
             System.out.println("*********************************************************************************************");
@@ -38,6 +38,7 @@ public class Main {
             if(option.equals("1")){
                 System.out.println("Enter the Number of partition: ");
                 numOfPartition = sc.nextInt();
+                AKIN ak = new AKIN(numOfPartition);
                 FO.ReadFile();
                 ak.printGraph();
                 ak.Update_vertex_list();
@@ -50,7 +51,7 @@ public class Main {
                 IOGP iogp =new IOGP();
             }
             if(option.equals("3")){
-                ak.print_partition_value();
+                AKIN.print_partition_value();
 
             }
 

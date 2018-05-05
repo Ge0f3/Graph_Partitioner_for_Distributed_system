@@ -23,17 +23,17 @@ public class AKIN extends StreamingGraphPartition{
 
 
     //creating 10 partition
-    Partition p0= new Partition(0);
-    Partition p1= new Partition(1);
-    Partition p2= new Partition(2);
-    Partition p3= new Partition(3);
-    Partition p4= new Partition(4);
-    Partition p5= new Partition(5);
-    Partition p6= new Partition(6);
-    Partition p7= new Partition(7);
-    Partition p8= new Partition(8);
-    Partition p9= new Partition(9);
-    Partition p10= new Partition(10);
+    static Partition p0= new Partition(0);
+    static Partition p1= new Partition(1);
+    static Partition p2= new Partition(2);
+    static Partition p3= new Partition(3);
+    static Partition p4= new Partition(4);
+    static Partition p5= new Partition(5);
+    static Partition p6= new Partition(6);
+    static Partition p7= new Partition(7);
+    static Partition p8= new Partition(8);
+    static Partition p9= new Partition(9);
+    static Partition p10= new Partition(10);
 
 
     public void printGraph(){
@@ -127,7 +127,7 @@ public class AKIN extends StreamingGraphPartition{
 
     }
 
-    public void print_partition_value(){
+    public static void print_partition_value(){
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the partition number: ");
         String option = sc.nextLine();
