@@ -5,6 +5,10 @@ import java.util.HashMap;
 
 
 public class AKIN extends StreamingGraphPartition{
+    static Scanner sc=new Scanner(System.in);
+    //ojbject for utils
+    Utils ul = new Utils();
+    int num_of_partition;
 
     AKIN(int numOfPartition){
         this.num_of_partition =numOfPartition;
@@ -15,11 +19,7 @@ public class AKIN extends StreamingGraphPartition{
     HashMap<Integer,ArrayList<Integer>> Graph = graph.ReadFile();
     HashMap<Integer,Long> vertex_hash = new HashMap<Integer, Long>();
     ArrayList<Integer> vertex_list =new ArrayList<Integer>(Graph.size());
-    int server_size=10;
-    int num_of_partition=server_size;
 
-    //ojbject for utils
-    Utils ul = new Utils();
 
 
     //creating 10 partition
@@ -34,6 +34,54 @@ public class AKIN extends StreamingGraphPartition{
     static Partition p8= new Partition(8);
     static Partition p9= new Partition(9);
     static Partition p10= new Partition(10);
+
+    //partition the graph from the edgeList set
+    public void Partition(){
+        Set<Edge> edgeList = FileOp.getEdgeList();
+        for (Edge elem: edgeList) {
+            if(elem.src.partitionId != 0){
+                continue;
+            }
+            else{
+                determinePartition(elem.src);
+                determinePartition(elem.dest);
+            }
+
+        }
+    }
+
+    //determine partition for arriving vertex v
+    public void determinePartition(Vertex vertex){
+        long l = get_has_value(vertex.vertexId,num_of_partition);;
+        int i = (int)l;
+        if(i<num_of_partition){
+            assignValue(vertex,i);
+
+
+        }
+    }
+
+    //assign vertex v to partition i
+    public static void assignValue(Vertex vertex,int i){
+        Partition p = allPartitions.get(i);
+        if(!p.in_partition(vertex)){
+            vertex.partitionId =i;
+            p.vertexSet.add(vertex);
+            p.vertex_size++;
+        }
+    }
+
+    //print the vertexlist of the partition based on user input
+    public static void printPartitionValues(){
+        System.out.println("Enter the partition number: ");
+        int option = sc.nextInt();
+        Partition p = allPartitions.get(option);
+        Set<Vertex> vertexSet = p.getVertexSet();
+        System.out.printf("Printing vertex list of parition %s \n",p.partition_id);
+        //System.out.printf("The size of the vertexList is %s\n",p.vertexSet.size());
+        p.printVertex();
+    }
+
 
 
     public void printGraph(){
@@ -71,10 +119,11 @@ public class AKIN extends StreamingGraphPartition{
         }
 
     }
-    public long get_has_value(int vertex,int num_of_partition){
-         long unique = Integer.toUnsignedLong(vertex);
+    public long get_has_value(long vertex,int num_of_partition){
+         //long unique = Integer.toUnsignedLong(vertex);
         //int hash_value = unique.hashCode()%num_of_partition;
-        long hash_value = ul.modulusHashing(unique,num_of_partition);
+        long hash_value = ul.modulusHashing(vertex,num_of_partition);
+
         return hash_value;
 
     }
@@ -95,6 +144,10 @@ public class AKIN extends StreamingGraphPartition{
         }
         System.out.println("__________________________________Partition completed__________________________________");
     }
+
+
+
+
 
     public void determine_partition(int vertex,int num_of_partition){
 
@@ -127,8 +180,10 @@ public class AKIN extends StreamingGraphPartition{
 
     }
 
+
+
     public static void print_partition_value(){
-        Scanner sc=new Scanner(System.in);
+
         System.out.println("Enter the partition number: ");
         String option = sc.nextLine();
         if(option.equals("0")){
@@ -191,5 +246,15 @@ public class AKIN extends StreamingGraphPartition{
     @Override
     public Map<Integer, List<Edge>> trySplittingEdge(Vertex vertex) {
         return null;
+    }
+
+    public  boolean not_exist(Vertex vertex,int i){
+        Partition p = allPartitions.get(i);
+        if(p.in_partition(vertex)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

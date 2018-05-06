@@ -6,7 +6,7 @@ import java.util.Map;
 
 public abstract class StreamingGraphPartition {
 
-    List<Partition> allPartitions = new ArrayList<>();
+    static List<Partition> allPartitions = new ArrayList<>();
 
     public List<Partition> getAllPartitions() {
         return allPartitions;

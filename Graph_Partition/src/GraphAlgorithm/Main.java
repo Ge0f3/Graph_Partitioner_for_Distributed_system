@@ -29,33 +29,40 @@ public class Main {
         while(true){
             System.out.println("*********************************************************************************************");
             System.out.println("Type the action number as following:");
-            System.out.println("1. AKIN.");
-            System.out.println("2. IOGP.");
-            System.out.println("3. Print partition ");
-            System.out.println("4. To exit.");
+            System.out.println("1. File operation.");
+            System.out.println("2. AKIN.");
+            System.out.println("3. IOGP.");
+            System.out.println("4. Print partition ");
+            System.out.println("5. To exit.");
             System.out.println("*********************************************************************************************\n");
             String option = sc.nextLine();
             if(option.equals("1")){
+                FO.ReadFile();
+                FO.printEdgeList();
+            }
+            else if(option.equals("2")){FO.ReadFile();
                 System.out.println("Enter the Number of partition: ");
                 numOfPartition = sc.nextInt();
                 AKIN ak = new AKIN(numOfPartition);
-                FO.ReadFile();
-                ak.printGraph();
-                ak.Update_vertex_list();
-                ak.print_vertex_list();
-                ak.vertex_hash_map();
-                ak.print_vertex_hash();
-                ak.partition();
+                ak.Partition();
+
+//                ak.printGraph();
+//                ak.Update_vertex_list();
+//                ak.print_vertex_list();
+//                ak.vertex_hash_map();
+//                ak.print_vertex_hash();
+//                ak.partition();
+
             }
-            if(option.equals("2")){
+            else if(option.equals("3")){
                 IOGP iogp =new IOGP();
             }
-            if(option.equals("3")){
-                AKIN.print_partition_value();
+            else if(option.equals("4")){
+                AKIN.printPartitionValues();
 
             }
 
-            else if(option.equals("4")){
+            else if(option.equals("5")){
                 System.out.println("Exiting...");
                 System.exit(0);
             }

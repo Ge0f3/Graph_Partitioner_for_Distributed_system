@@ -13,7 +13,9 @@ public class Vertex {
 
     boolean isReference;
 
-    int partitionId;
+    int partitionId=0;
+
+
 
     public Vertex(long vertexId) {
         this.vertexId = vertexId;

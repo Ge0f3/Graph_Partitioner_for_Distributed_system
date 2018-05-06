@@ -30,6 +30,17 @@ public class Partition {
         }
     }
 
+    public void printVertex(){
+        for (Vertex vertex:vertexSet) {
+            System.out.printf("Vertex is %s \n",vertex.vertexId);
+        }
+    }
+
+    public void addVertex(Vertex vertex){
+        vertexSet.add(vertex);
+        vertex_size++;
+    }
+
     public void add_vertex(int vertex){
         VertexListP.add(vertex);
     }
@@ -50,6 +61,8 @@ public class Partition {
     public void setEdge_size(int edge_size) {
         this.edge_size = edge_size;
     }
+
+    public Set<Vertex> getVertexSet(){ return vertexSet;}
 
 
 
