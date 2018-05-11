@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<Peers>
+	    <PeerName>peer1</PeerName>
+	    <PeerPort>22227</PeerPort>
+	    <PeerNeighbours>2</PeerNeighbours>
+	</Peers>
+	
+	<Peers>
+	    <PeerName>peer2</PeerName>
+		 <PeerPort>22237</PeerPort>
+	    <PeerNeighbours>3</PeerNeighbours>
+	</Peers>
+	
+	<Peers>
+	    <PeerName>peer3</PeerName>
+		 <PeerPort>22247</PeerPort>
+	    <PeerNeighbours>1</PeerNeighbours>
+	</Peers>
+
+	
+
+</data-set>

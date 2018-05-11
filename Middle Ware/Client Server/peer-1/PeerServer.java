@@ -97,9 +97,6 @@ public class PeerServer {						//Client class - named as Peer Server
 					SearchFileInServer();                            //Search Method call
 					break;
 				case "3":
-					FileDownloadFromPeerServer();                       //Download Method call
-					break; 
-				case "4":
 					System.out.println("Exiting.");					
 					System.exit(0);   								//Exit the system
 				default:
@@ -201,65 +198,7 @@ public class PeerServer {						//Client class - named as Peer Server
 		}
 	}
 
-	public void writetoFile(String s)
-	{
-		try
-		{  	String fname = searchfile;   					//To Append String s to Existing File
-			FileWriter filewrite = new FileWriter(fname,true);
-			filewrite.write(s);                                      //Write to file, the contents
-			filewrite.close();
-
-		} catch(Exception e){
-			System.out.println("Cannot Open File");
-		}
-
-	}
-
-	public void FileDownloadFromPeerServer()                    //Download Function Method 
-	{	System.out.println("Enter Peer id:");                       
-		Scanner inputpeerId = new Scanner(System.in);               //Takes input form the user of the 4Digit Peer ID format 
-		String peerid = inputpeerId.nextLine();
-
-		System.out.println("Enter pear IP Address to download file:");	//Enter Ip address of the Peer
-		String ipadrs = inputpeerId.nextLine();
-		System.out.println("Enter the File Name to be Downloaded:");      
-		searchfile = inputpeerId.nextLine();                              //Takes from user the desired filename to be downloaded
-
-		int peerid1 = Integer.parseInt(peerid);					//Convert peer id into integer
-		try{
-			requestSocket = new Socket(ipadrs, peerid1);	   //Creating a socket to connect to the Index server
-			System.out.println("\nConnected to peerid : "+peerid1+"\n");   // To Get Input and Output streams
-			out = new ObjectOutputStream(requestSocket.getOutputStream());
-			out.flush();			   										//Clearing the Buffer
-			out.writeObject(searchfile);
-			out.flush();													//Clearing the Buffer
-			ObjectInputStream in = new ObjectInputStream(requestSocket.getInputStream());
-			String strVal = (String)in.readObject();
-			System.out.println( searchfile+": Downloaded\n");
-			writetoFile(strVal);
-		}
-		catch(UnknownHostException unknownHost){                                             //To Handle Unknown Host Exception
-			System.err.println("You are trying to connect to an unknown host!");
-		}
-		catch(IOException ioException){                                                      //To Handle Input-Output Exception
-
-			ioException.printStackTrace();
-			System.err.println("FILE not Found at the Following PEER !!");      
-			System.err.println("Please enter a valid PEER ID!");     // To  Inform User and Avoid StackTrace Print on Console 
-			FileDownloadFromPeerServer();                    // Calling Download Function Again to enable user to enter valid Filename and Port Number
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		finally{ // Closing Connection
-			try{
-				out.close();
-				requestSocket.close();
-			}
-			catch(IOException ioException){
-				ioException.printStackTrace();
-			}
-		}
-	}
+	
 	public void FileDownloadRequest(int peerid)                                //FileDownload Request Thread   
 	{
 		Thread dthread = new Thread (new PortListenerSend(peerid));

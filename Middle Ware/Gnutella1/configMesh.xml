@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<Peers>
+	    <PeerName>peer1</PeerName>
+	    <PeerPort>22227</PeerPort>
+	    <PeerNeighbours>2,4</PeerNeighbours>
+	</Peers>
+	
+	<Peers>
+	    <PeerName>peer2</PeerName>
+		 <PeerPort>22237</PeerPort>
+	    <PeerNeighbours>1,5,3</PeerNeighbours>
+	</Peers>
+	
+	<Peers>
+	    <PeerName>peer3</PeerName>
+		 <PeerPort>22247</PeerPort>
+	    <PeerNeighbours>2,6</PeerNeighbours>
+	</Peers>
+	<Peers>
+	    <PeerName>peer4</PeerName>
+		<PeerPort>22257</PeerPort>
+	    <PeerNeighbours>1,5,7</PeerNeighbours>
+	</Peers>
+	<Peers>
+	    <PeerName>peer5</PeerName>
+		<PeerPort>22267</PeerPort>
+	    <PeerNeighbours>2,4,6,8</PeerNeighbours>
+	</Peers>
+	<Peers>
+	    <PeerName>peer6</PeerName>
+		<PeerPort>22277</PeerPort>
+	    <PeerNeighbours>3,5,9</PeerNeighbours>
+	</Peers>
+	<Peers>
+	    <PeerName>peer7</PeerName>
+		<PeerPort>22286</PeerPort>
+	    <PeerNeighbours>4,8</PeerNeighbours>
+	</Peers>
+	<Peers>
+	    <PeerName>peer8</PeerName>
+		<PeerPort>22297</PeerPort>
+	    <PeerNeighbours>5,7,9</PeerNeighbours>
+	</Peers>
+	<Peers>
+	    <PeerName>peer9</PeerName>
+		 <PeerPort>22307</PeerPort>
+	    <PeerNeighbours>6,8</PeerNeighbours>
+	</Peers>
+	
+
+</data-set>

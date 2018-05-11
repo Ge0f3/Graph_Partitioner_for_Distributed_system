@@ -1,0 +1,10 @@
+ssh keygen
+
+cd ../ssh
+
+do ls
+then search for a file with extension .pub
+
+cat filename.pub
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD35PHs3RoZPLBFFIAoz4jJdfh7uxBEZ57QakDdjtlPGDRvqi/D0Ya7Gyjdu7X2EUFbImpzdijTaBMGSabxvsX1IYY65GadBIsJ4y6U+EhR137fRgKx6L0CtF7keVMovIjhnVLI81GiphWHiL2wcnxIgWdJXzcdkNRtD9ho+2a1TYYWAUEqsxyEJcAu0CI1om71Rg1S25spCkE5gLgyWvrSMx3Q2+dVVVcD0M+WKPER9PFQ2fMT7py7Vr8zrLvkO4BAnljIwBR8zIacD50U+B8ELCHuWNZH5iChBia7QjnTcwr9T9w3LRQwvb/ecmGV5tj5E8daIuLsYoVILa/SI1Gt dheeraj@Dheeraj-Cidda
